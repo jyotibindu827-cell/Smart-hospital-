@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Government Hospital System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef3ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            margin: 0;
+        }
+        .menu, .box {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🏥 Smart Government Hospital</h1>
+
+<div class="menu" id="mainMenu">
+    <h3>Main Menu</h3>
+    <button onclick="showNavigation()">Hospital Navigation</button>
+    <button onclick="showPharmacy()">Pharmacy Medicine Availability</button>
+</div>
+
+<div class="box" id="navigation" style="display:none;">
+    <h3>Hospital Navigation</h3>
+    <button onclick="showDirection('Go straight and turn left to reach OPD.')">OPD</button>
+    <button onclick="showDirection('Go straight and take lift to 2nd floor for ICU.')">ICU</button>
+    <button onclick="showDirection('Turn right from entrance for Emergency Ward.')">Emergency</button>
+    <button onclick="showDirection('Pharmacy is next to OPD block.')">Pharmacy</button>
+    <button onclick="showDirection('Go left behind OPD to reach General Ward.')">General Ward</button>
+    <button class="back" onclick="goBack()">Back</button>
+</div>
+
+<div class="box" id="pharmacy" style="display:none;">
+    <h3>Pharmacy Medicine Status</h3>
+    <button onclick="alert('✔ Paracetamol is AVAILABLE')">Paracetamol</button>
+    <button onclick="alert('✔ Antibiotics are AVAILABLE')">Antibiotics</button>
+    <button onclick="alert('❌ Insulin is NOT AVAILABLE')">Insulin</button>
+    <button onclick="alert('✔ ORS is AVAILABLE')">ORS</button>
+    <button class="back" onclick="goBack()">Back</button>
+</div>
+
+<script>
+    function showNavigation() {
+        document.getElementById("mainMenu").style.display = "none";
+        document.getElementById("navigation").style.display = "block";
+    }
+
+    function showPharmacy() {
+        document.getElementById("mainMenu").style.display = "none";
+        document.getElementById("pharmacy").style.display = "block";
+    }
+
+    function showDirection(msg) {
+        alert("➡ Direction: " + msg);
+    }
+
+    function goBack() {
+        document.getElementById("navigation").style.display = "none";
+        document.getElementById("pharmacy").style.display = "none";
+        document.getElementById("mainMenu").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
